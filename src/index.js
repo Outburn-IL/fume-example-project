@@ -25,10 +25,10 @@ server.warmUp(options).then(async () => {
   const results = await server.transform(input, expression);
   console.log('Transformation results:');
   console.log(JSON.stringify(results, null, 2));
+  console.log(`FUME server still running on port ${options.SERVER_PORT}`);
+  console.log('Press Ctrl+C to shut down the server.');
 });
 
-console.log(`FUME server still running on port ${options.SERVER_PORT}`);
-console.log('Press Ctrl+C to shut down the server.');
 // shutdown the server when done
 process.on('SIGINT', async () => {
   await server.shutDown();
